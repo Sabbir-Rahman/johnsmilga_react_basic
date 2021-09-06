@@ -2,46 +2,47 @@ import React from "react";
 import ReactDom from "react-dom";
 import './index.css'
 
+//setup vars
+
+const book1 = {
+  title : "I love you to the moon and back",
+  author : "Amelia Hepworth",
+  img :"https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg"
+}
+
+const book2 = {
+  title : "Little Blue Truck's Halloween",
+  author : "Alice Schertle",
+  img : "https://images-na.ssl-images-amazon.com/images/I/51MB5SD5GIL._AC_UL200_SR200,200_.jpg"
+} 
+
 function Booklist() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book img={book1.img} title={book1.title} author={book1.author} />
+      <Book img={book2.img} title={book2.title} author={book2.author} />
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
+  
+  console.log(props)
+
   return (
     <article className="book">
-      <div>
-        <Image></Image>
-        <Title />
-        <Author/>
-      </div>
+      <img
+        src={props.img}
+        alt=""
+      />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   );
 };
 
-const Image = () => {
-  return (
-    <img
-      src="https://images-na.ssl-images-amazon.com/images/I/51b-JoV-1xS._AC_SX184_.jpg"
-      alt=""
-    />
-  );
-};
 
-const Author = () => {
-  return <h4 style={{color: '#617d98', fontSize: '0.75rem', marginTop: '.25rem'}}>This is author</h4>;
-};
 
-const Title = () => {
-  return <h1>This is a title</h1>;
-};
 
 // ======= function calll ==========
 // const Greeting = () => {
