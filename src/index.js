@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDom from "react-dom";
+import './index.css'
 
 function Booklist() {
   return (
-    <section>
+    <section className="booklist">
       <Book />
       <Book />
       <Book />
@@ -15,11 +16,11 @@ function Booklist() {
 
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <div>
         <Image></Image>
-        <Author />
         <Title />
+        <Author/>
       </div>
     </article>
   );
@@ -35,11 +36,11 @@ const Image = () => {
 };
 
 const Author = () => {
-  return <p>This is a author</p>;
+  return <h4 style={{color: '#617d98', fontSize: '0.75rem', marginTop: '.25rem'}}>This is author</h4>;
 };
 
 const Title = () => {
-  return <h4>This is a title</h4>;
+  return <h1>This is a title</h1>;
 };
 
 // ======= function calll ==========
