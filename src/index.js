@@ -6,12 +6,14 @@ import "./index.css";
 
 const books = [
   {
+    id:1,
     title: "I love you to the moon and back",
     author: "Amelia Hepworth",
     img: "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",
   },
 
   {
+    id:2,
     title: "Little Blue Truck's Halloween",
     author: "Alice Schertle",
     img: "https://images-na.ssl-images-amazon.com/images/I/51MB5SD5GIL._AC_UL200_SR200,200_.jpg",
@@ -23,7 +25,7 @@ function Booklist() {
     <section className="booklist">
       {books.map((book)=>{
         return(
-        <Book img={book.img} title={book.title} author={book.author}></Book>
+        <Book key={book.id} {...book}></Book>
         )
       })}
       
@@ -31,15 +33,15 @@ function Booklist() {
   );
 }
 
-const Book = (props) => {
-  console.log(props);
+const Book = ({img,author,title}) => {
+  
 
   return (
     <article className="book">
-      <img src={props.img} alt="" />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
-      {props.children}
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+
     </article>
   );
 };
